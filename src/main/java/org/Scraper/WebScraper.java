@@ -7,7 +7,7 @@ import java.net.URL;
 
 public class WebScraper {
 
-    private static final String PURL = "https://www.paranormaldatabase.com/index.html";
+    private static final String PURL = "https://www.ghostquest.net/haunted-places-washington-usa.html";
 
     public static void main(String[] args) throws IOException {
 
