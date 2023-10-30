@@ -2,6 +2,8 @@ package org.scrapers.GhostQuestScraper;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.models.GhostRecord;
 
 import javax.print.Doc;
@@ -12,7 +14,7 @@ import java.util.List;
 public class GhostQuestScraper {
 
     // VARs
-    private String[] states = {        "alabama",
+    private static String[] states = {        "alabama",
                                         "alaska",
                                         "arizona",
                                         "arkansas",
@@ -63,24 +65,32 @@ public class GhostQuestScraper {
                                         "wisconsin",
                                         "wyoming"
     };
-    private String state = states[0] ;
-    private String targetUrl = "https://www.ghostquest.net/haunted-places-" + state + "-usa.html";
+    private static String state = states[0] ;
+    private static String targetUrl = "https://www.ghostquest.net/haunted-places-" + "washington" + "-usa.html";
     private List<GhostRecord> ghostRecords = new ArrayList<>();
 
     // FUN
-    public Document ghostRecordScraper() {
+    public static Document ghostRecordScraper(String targetUrl) {
 
         try {
-            String url = "https://www.imdb.com/";
-            Document doc = Jsoup.connect(url).get();
 
-            System.out.println(doc);
-            return doc;
+            Document doc = Jsoup.connect(targetUrl).timeout(6000).get();
+            Elements body = doc.select("div.container");
+
+            for(Element e : body.select("div.paragraph")){
+                String upperMeta = e.select("div.paragraph").text();
+                System.out.println(upperMeta);
+                System.out.println("---");
+            }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         return null;
+    }
+
+    public static void main(String[] args) {
+        ghostRecordScraper(targetUrl);
     }
 }

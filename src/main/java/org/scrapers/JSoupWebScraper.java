@@ -13,8 +13,6 @@ public class JSoupWebScraper {
 
         String url = "https://www.imdb.com/chart/top/";
 
-
-
         try {
 
             Document doc = Jsoup.connect(url).timeout(6000).get();
