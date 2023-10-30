@@ -22,8 +22,11 @@ public class JSoupWebScraper {
 //            System.out.println(body.select("li").size());
 
             for(Element e : body.select("li")){
-                String title = e.select("div.ipc-metadata-list-summary-item__c").text();
+                String title = e.select("div.ipc-metadata-list-summary-item__c h3.ipc-title__text").text();
+                String meta = e.select("div.ipc-metadata-list-summary-item__c div.cli-title-metadata").text();
                 System.out.println(title);
+//                System.out.println(meta);
+
             }
 
         } catch (IOException e) {
