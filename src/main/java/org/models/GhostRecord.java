@@ -8,18 +8,20 @@ public class GhostRecord {
     private String author;
     private String recordType;
     private String record;
+    private String source;
 
     // CONs
     public GhostRecord() {
     }
 
-    public GhostRecord(String title, String location, String coord, String author, String recordType, String record) {
+    public GhostRecord(String title, String location, String coord, String author, String recordType, String record, String source) {
         this.title = title;
         this.location = location;
         this.coord = coord;
         this.author = author;
         this.recordType = recordType;
         this.record = record;
+        this.source = source;
     }
 
     // GETs
@@ -41,6 +43,9 @@ public class GhostRecord {
     public String getRecord() {
         return record;
     }
+    public String getSource() {
+        return source;
+    }
 
     // SETs
     public void setTitle(String title) {
@@ -60,5 +65,8 @@ public class GhostRecord {
     }
     public void setRecord(String record) {
         this.record = record;
+    }
+    public void setSource(String source){
+        this.source = source;
     }
 }
