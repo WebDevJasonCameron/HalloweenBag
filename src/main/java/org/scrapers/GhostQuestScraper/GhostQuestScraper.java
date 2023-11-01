@@ -90,6 +90,7 @@ public class GhostQuestScraper {
         return null;
     }
 
+    // RUNs
     public static void main(String[] args) {
         ghostRecordScraper(targetUrl);
     }
