@@ -202,7 +202,7 @@ public class ParanormalDatabaseScraper {
 
             for (Element section : sections) {
                 Element titleElement = section.select("div h4 span").first();
-                String x = titleElement.nextElementSiblings().text();
+                String x = section.select("span").text();
 
                 System.out.println(titleElement);
                 System.out.println(x);
