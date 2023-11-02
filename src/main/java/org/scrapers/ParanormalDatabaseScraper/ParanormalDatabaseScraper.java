@@ -208,21 +208,19 @@ public class ParanormalDatabaseScraper {
                 String type = "";
                 String dateTime = "";
                 String comments = "";
+                int count = 1;
 
                 System.out.println(title);
 
                 element.select("div p span");
                 for (Element e2 : element.select("div p span")) {
-                    System.out.println(e2.nextSibling());
+                    String output = e2.nextSibling().toString().trim();
+
+                    System.out.println(count + ": " + output);
+                    count ++;
                 }
 
                 System.out.println("\n---\n");
-
-
-
-
-
-
             }
 
 
