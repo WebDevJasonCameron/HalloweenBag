@@ -249,9 +249,17 @@ public class ParanormalDatabaseScraper {
         return ghostRecordList;
     }
 
-
-
     // <F> Iterate over list of urls
+    public static List<GhostRecord> ghostRecordWebsiteScraper(String[] urls){
+        List<GhostRecord> fullGhostRecordList = new ArrayList<>();
+
+        for (String targetUrl : urls) {
+            List<GhostRecord> ghostRecordList = ghostRecordScraper(targetUrl);
+            fullGhostRecordList.addAll(ghostRecordList);
+        }
+
+        return fullGhostRecordList;
+    }
 
 
     // <F> Publish GRs to DB
@@ -259,16 +267,20 @@ public class ParanormalDatabaseScraper {
 
     // RUNs
     public static void main(String[] args) {
-        List<GhostRecord> ghostRecordList = ghostRecordScraper(targetUrl);
+        List<GhostRecord> ghostRecordList = new ArrayList<>(ghostRecordWebsiteScraper(urls));
 
-        for (GhostRecord ghostrecord : ghostRecordList ) {
-            System.out.println("Title: " + ghostrecord.getTitle());
-            System.out.println("Location: " + ghostrecord.getLocation());
-            System.out.println("Type: " + ghostrecord.getRecordType());
-            System.out.println("Date & Time: " + ghostrecord.getDateTime());
-            System.out.println("Further Comments: " + ghostrecord.getRecord());
+        for (GhostRecord ghostRecord : ghostRecordList ) {
+            System.out.println("Title: " + ghostRecord.getTitle());
+            System.out.println("Location: " + ghostRecord.getLocation());
+            System.out.println("Type: " + ghostRecord.getRecordType());
+            System.out.println("Date & Time: " + ghostRecord.getDateTime());
+            System.out.println("Further Comments: " + ghostRecord.getRecord());
             System.out.println("\n---\n");
         }
+
+
+
+
     }
 
 }
