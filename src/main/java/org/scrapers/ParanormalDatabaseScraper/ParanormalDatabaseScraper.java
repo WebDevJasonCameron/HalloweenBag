@@ -198,15 +198,34 @@ public class ParanormalDatabaseScraper {
         try {
 
             Document doc = Jsoup.connect(targetUrl).timeout(6000).get();
-            Elements sections = doc.select("div.w3-border-left.w3-border-top.w3-left-align");
+            Elements elements = doc.select("div.w3-border-left.w3-border-top.w3-left-align");
 
-            for (Element section : sections) {
-                Element titleElement = section.select("div h4 span").first();
-                String x = section.select("span").text();
+            //System.out.println(sections);
 
-                System.out.println(titleElement);
-                System.out.println(x);
+            for (Element element : elements){
+                String title = element.select("div h4 span").text();
+                String location = "";
+                String type = "";
+                String dateTime = "";
+                String comments = "";
+
+                System.out.println(title);
+
+                element.select("div p span");
+                for (Element e2 : element.select("div p span")) {
+                    System.out.println(e2.nextSibling());
+                }
+
+                System.out.println("\n---\n");
+
+
+
+
+
+
             }
+
+
 
         } catch (IOException e) {
             e.printStackTrace();
