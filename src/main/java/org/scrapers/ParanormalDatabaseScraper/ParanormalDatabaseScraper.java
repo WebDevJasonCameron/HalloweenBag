@@ -194,37 +194,42 @@ public class ParanormalDatabaseScraper {
 
 
     // FUN
-    public static Document paranormalDatabaseScraper(String targetUrl) {
+    public static void paranormalDatabaseScraper(String targetUrl) {
 
         try {
 
             Document doc = Jsoup.connect(targetUrl).timeout(6000).get();
             Elements elements = doc.select("div.w3-border-left.w3-border-top.w3-left-align");
 
-            //System.out.println(sections);
-
             for (Element element : elements){
                 List<String> elementData = new ArrayList<>();
-                String title = element.select("div h4 span").text();
-                String location = "";
-                String type = "";
-                String dateTime = "";
-                String comments = "";
 
+                elementData.add(element.select("div h4 span").text());                  //   title to array
 
+                for (Element e2 : element.select("div p span")) {                       //   each to array
+                    String output = Objects.requireNonNull(e2.nextSibling()).toString().trim();
 
-                element.select("div p span");
-                for (Element e2 : element.select("div p span")) {
-                    elementData.add(Objects.requireNonNull(e2.nextSibling()).toString().trim());
+                    if (!output.isEmpty()){                                                      //   skip blanks
+                        elementData.add(output);
+                    }
                 }
 
+                if (!elementData.get(0).isEmpty()){
 
-                System.out.println(title);  // <N> remove after
+                    String title = elementData.get(0);
+                    String location = elementData.get(1);
+                    String type = elementData.get(2);
+                    String dateTime = elementData.get(3);
+                    String comments = elementData.get(4);
 
-                // <N> check size of array, if larger than 4, remove index 0
-                // <N> set title, location, type, dateTime, and comments according to array index
-                // <N> all set items could be replaced with setting these as ghostRecord set methods for loading
-
+                    System.out.println("Title: " + title);
+                    System.out.println("Location: " + location);
+                    System.out.println("Type: " + type);
+                    System.out.println("Date & Time: " + dateTime);
+                    System.out.println("Additional Comments: " + comments);
+                } else {
+                    break;
+                }
                 System.out.println("\n---\n");
             }
 
@@ -234,7 +239,7 @@ public class ParanormalDatabaseScraper {
             e.printStackTrace();
         }
 
-        return null;
+        System.out.println("App Completed");
     }
 
     // RUNs
