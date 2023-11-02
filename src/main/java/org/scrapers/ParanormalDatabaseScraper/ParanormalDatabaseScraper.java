@@ -203,22 +203,28 @@ public class ParanormalDatabaseScraper {
             //System.out.println(sections);
 
             for (Element element : elements){
+                // <N> Create Array
                 String title = element.select("div h4 span").text();
                 String location = "";
                 String type = "";
                 String dateTime = "";
                 String comments = "";
-                int count = 1;
+                int count = 1;  // <N> remove after
 
-                System.out.println(title);
+                System.out.println(title);  // <N> remove after
 
                 element.select("div p span");
                 for (Element e2 : element.select("div p span")) {
                     String output = e2.nextSibling().toString().trim();
 
                     System.out.println(count + ": " + output);
-                    count ++;
+                    count ++;   // <N> remove after
+                    // <N> append to array
                 }
+
+                // <N> check size of array, if larger than 4, remove index 0
+                // <N> set title, location, type, dateTime, and comments according to array index
+                // <N> all set items could be replaced with setting these as ghostRecord set methods for loading
 
                 System.out.println("\n---\n");
             }
