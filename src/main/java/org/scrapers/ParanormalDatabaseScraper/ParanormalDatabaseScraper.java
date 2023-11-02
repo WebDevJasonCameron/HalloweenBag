@@ -1,5 +1,20 @@
-package org.scrapers.ParanormalDatabaseScraper;
+/**
+ *      Name:           ParanormalDatabaseScraper.java
+ *      Create Date:    2023 10 30
+ *      Mod Date:       2023 11 01
+ *      Location:
+ *      Purpose:        Scraper focussed on the ParanormalDatabase website.  It pulls ghostRecords
+ *                      (GR) from a list of url pages, places them into a List and then iteratively
+ *                      places them into the local GR DB <- </!>Still need to create DB
+ *      Key:            <F>     Function / Method
+ *                      <f>     Helper function / method
+ *                      <N>     Note
+ *                      <R>     Come back to refactor
+ *                      <!>     Important
+ *
+ */
 
+package org.scrapers.ParanormalDatabaseScraper;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -194,57 +209,66 @@ public class ParanormalDatabaseScraper {
 
 
     // FUN
-    public static void paranormalDatabaseScraper(String targetUrl) {
+    // <F> Iterate over html page, export 1 GR at a time
+    public static List<GhostRecord> ghostRecordScraper(String targetUrl) {
+        List<GhostRecord> ghostRecordList = new ArrayList<>();
 
         try {
-
             Document doc = Jsoup.connect(targetUrl).timeout(6000).get();
             Elements elements = doc.select("div.w3-border-left.w3-border-top.w3-left-align");
 
             for (Element element : elements){
+                GhostRecord ghostRecord = new GhostRecord();
                 List<String> elementData = new ArrayList<>();
 
                 elementData.add(element.select("div h4 span").text());                  //   title to array
 
                 for (Element e2 : element.select("div p span")) {                       //   each to array
                     String output = Objects.requireNonNull(e2.nextSibling()).toString().trim();
-
-                    if (!output.isEmpty()){                                                      //   skip blanks
-                        elementData.add(output);
-                    }
+                    if (!output.isEmpty()){elementData.add(output);}                            //   skip blanks
                 }
 
                 if (!elementData.get(0).isEmpty()){
+                    ghostRecord.setTitle(elementData.get(0));
+                    ghostRecord.setLocation(elementData.get(1));
+                    ghostRecord.setRecordType(elementData.get(2));
+                    ghostRecord.setDateTime(elementData.get(3));
+                    ghostRecord.setRecord(elementData.get(4));
 
-                    String title = elementData.get(0);
-                    String location = elementData.get(1);
-                    String type = elementData.get(2);
-                    String dateTime = elementData.get(3);
-                    String comments = elementData.get(4);
-
-                    System.out.println("Title: " + title);
-                    System.out.println("Location: " + location);
-                    System.out.println("Type: " + type);
-                    System.out.println("Date & Time: " + dateTime);
-                    System.out.println("Additional Comments: " + comments);
+                    ghostRecordList.add(ghostRecord);
                 } else {
                     break;
                 }
-                System.out.println("\n---\n");
             }
-
-
 
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         System.out.println("App Completed");
+        return ghostRecordList;
     }
+
+
+
+    // <F> Iterate over list of urls
+
+
+    // <F> Publish GRs to DB
+
 
     // RUNs
     public static void main(String[] args) {
-        paranormalDatabaseScraper(targetUrl);
+        List<GhostRecord> ghostRecordList = ghostRecordScraper(targetUrl);
+
+        for (GhostRecord ghostrecord : ghostRecordList ) {
+            System.out.println("Title: " + ghostrecord.getTitle());
+            System.out.println("Location: " + ghostrecord.getLocation());
+            System.out.println("Type: " + ghostrecord.getRecordType());
+            System.out.println("Date & Time: " + ghostrecord.getDateTime());
+            System.out.println("Further Comments: " + ghostrecord.getRecord());
+            System.out.println("\n---\n");
+        }
     }
 
 }
