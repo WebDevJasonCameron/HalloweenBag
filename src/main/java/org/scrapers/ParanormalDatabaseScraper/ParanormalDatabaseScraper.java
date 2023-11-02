@@ -9,6 +9,7 @@ import org.models.GhostRecord;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ParanormalDatabaseScraper {
 
@@ -203,24 +204,22 @@ public class ParanormalDatabaseScraper {
             //System.out.println(sections);
 
             for (Element element : elements){
-                // <N> Create Array
+                List<String> elementData = new ArrayList<>();
                 String title = element.select("div h4 span").text();
                 String location = "";
                 String type = "";
                 String dateTime = "";
                 String comments = "";
-                int count = 1;  // <N> remove after
 
-                System.out.println(title);  // <N> remove after
+
 
                 element.select("div p span");
                 for (Element e2 : element.select("div p span")) {
-                    String output = e2.nextSibling().toString().trim();
-
-                    System.out.println(count + ": " + output);
-                    count ++;   // <N> remove after
-                    // <N> append to array
+                    elementData.add(Objects.requireNonNull(e2.nextSibling()).toString().trim());
                 }
+
+
+                System.out.println(title);  // <N> remove after
 
                 // <N> check size of array, if larger than 4, remove index 0
                 // <N> set title, location, type, dateTime, and comments according to array index
