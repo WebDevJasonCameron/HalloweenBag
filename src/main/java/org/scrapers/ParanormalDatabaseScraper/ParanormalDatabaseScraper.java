@@ -90,7 +90,7 @@ public class ParanormalDatabaseScraper {
                                     "https://www.paranormaldatabase.com/hotspots/norwich.php",
                                     "https://www.paranormaldatabase.com/hotspots/peterborough.php",
                                     "https://www.paranormaldatabase.com/hotspots/thetford.php",
-                                    "https://www.paranormaldatabase.com/derbyshire/derbdata.php",   // 5
+                                    "https://www.paranormaldatabase.com/derbyshire/derbdata.php",       // 5
                                     "https://www.paranormaldatabase.com/leicestershire/leicdata.php",
                                     "https://www.paranormaldatabase.com/lincolnshire/lincdata.php",
                                     "https://www.paranormaldatabase.com/northants/pages/nantdata.php",
@@ -102,7 +102,7 @@ public class ParanormalDatabaseScraper {
                                     "https://www.paranormaldatabase.com/hotspots/newark.php",
                                     "https://www.paranormaldatabase.com/hotspots/northampton.php",
                                     "https://www.paranormaldatabase.com/hotspots/nottingham.php",
-                                    "https://www.paranormaldatabase.com/hereford/heredata.php", // 6
+                                    "https://www.paranormaldatabase.com/hereford/heredata.php",         // 6
                                     "https://www.paranormaldatabase.com/shropshire/shrodata.php",
                                     "https://www.paranormaldatabase.com/staffordshire/stafdata.php",
                                     "https://www.paranormaldatabase.com/warwickshire/warwdata.php",
@@ -122,7 +122,7 @@ public class ParanormalDatabaseScraper {
                                     "https://www.paranormaldatabase.com/hotspots/chester.php",
                                     "https://www.paranormaldatabase.com/hotspots/liverpool.php",
                                     "https://www.paranormaldatabase.com/hotspots/manchester.php",
-                                    "https://www.paranormaldatabase.com/durham/durhdata.php",   // 8
+                                    "https://www.paranormaldatabase.com/durham/durhdata.php",           // 8
                                     "https://www.paranormaldatabase.com/northumberland/nhumdata.php",
                                     "https://www.paranormaldatabase.com/tyneandwear/index.php",
                                     "https://www.paranormaldatabase.com/yorkshire/Pages/yorkdata.php",
@@ -133,7 +133,7 @@ public class ParanormalDatabaseScraper {
                                     "https://www.paranormaldatabase.com/hotspots/sheffield.php",
                                     "https://www.paranormaldatabase.com/hotspots/wakefield.php",
                                     "https://www.paranormaldatabase.com/yorkshire/Pages/york.php",
-                                    "https://www.paranormaldatabase.com/highlands/aberdata.php", // 9
+                                    "https://www.paranormaldatabase.com/highlands/aberdata.php",        // 9
                                     "https://www.paranormaldatabase.com/highlands/Argydata.php",
                                     "https://www.paranormaldatabase.com/highlands/Highdata.php",
                                     "https://www.paranormaldatabase.com/highlands/Invedata.php",
@@ -157,7 +157,7 @@ public class ParanormalDatabaseScraper {
                                     "https://www.paranormaldatabase.com/hotspots/aberdeen.php",
                                     "https://www.paranormaldatabase.com/hotspots/edinburgh.php",
                                     "https://www.paranormaldatabase.com/hotspots/glasgow.php",
-                                    "https://www.paranormaldatabase.com/wales/clwyd.php", // 10
+                                    "https://www.paranormaldatabase.com/wales/clwyd.php",               // 10
                                     "https://www.paranormaldatabase.com/wales/Dyfed.php",
                                     "https://www.paranormaldatabase.com/wales/Gwent.php",
                                     "https://www.paranormaldatabase.com/wales/Gwynedd.php",
@@ -165,13 +165,13 @@ public class ParanormalDatabaseScraper {
                                     "https://www.paranormaldatabase.com/wales/Powys.php",
                                     "https://www.paranormaldatabase.com/wales/SouthGlamorgan.php",
                                     "https://www.paranormaldatabase.com/wales/WestGlamorgan.php",
-                                    "https://www.paranormaldatabase.com/ireland/antrim.php", // 11
+                                    "https://www.paranormaldatabase.com/ireland/antrim.php",            // 11
                                     "https://www.paranormaldatabase.com/ireland/armagh.php",
                                     "https://www.paranormaldatabase.com/ireland/down.php",
                                     "https://www.paranormaldatabase.com/ireland/fermanagh.php",
                                     "https://www.paranormaldatabase.com/ireland/londonderry.php",
                                     "https://www.paranormaldatabase.com/ireland/tyrone.php",
-                                    "https://www.paranormaldatabase.com/ireland/carlow.php", // 12
+                                    "https://www.paranormaldatabase.com/ireland/carlow.php",            // 12
                                     "https://www.paranormaldatabase.com/ireland/cavan.php",
                                     "https://www.paranormaldatabase.com/ireland/clare.php",
                                     "https://www.paranormaldatabase.com/ireland/cork.php",
@@ -198,7 +198,7 @@ public class ParanormalDatabaseScraper {
                                     "https://www.paranormaldatabase.com/ireland/westmeath.php",
                                     "https://www.paranormaldatabase.com/ireland/wexford.php",
                                     "https://www.paranormaldatabase.com/ireland/wicklow.php",
-                                    "https://www.paranormaldatabase.com/isleofman/mandata.php", // 13
+                                    "https://www.paranormaldatabase.com/isleofman/mandata.php",         // 13
                                     "https://www.paranormaldatabase.com/channelislands/channelislands.php",
                                     "https://www.paranormaldatabase.com/europe/index.php",
                                     "https://www.paranormaldatabase.com/channelislands/guernsey.php",
@@ -275,10 +275,6 @@ public class ParanormalDatabaseScraper {
             System.out.println("Further Comments: " + ghostRecord.getRecord());
             System.out.println("\n---\n");
         }
-
-
-
-
     }
 
 }
