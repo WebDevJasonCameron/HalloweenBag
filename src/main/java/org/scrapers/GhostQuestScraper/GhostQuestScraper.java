@@ -10,11 +10,12 @@ import javax.print.Doc;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class GhostQuestScraper {
 
     // VARs
-    private static String[] states = {        "alabama",
+    private static String[] states = {  "alabama",
                                         "alaska",
                                         "arizona",
                                         "arkansas",
@@ -78,8 +79,14 @@ public class GhostQuestScraper {
             Elements body = doc.select("div.container");
 
             for(Element e : body.select("div h2")){
-                String title = e.select("h2").text().replace("[TAP OR CLICK TO LEARN MORE]", "");
-                System.out.println(title);
+                String location = e.select("h2").text().replace("[TAP OR CLICK TO LEARN MORE]", "");
+                String allWithin = e.nextElementSibling().text();
+                Element x = e.nextElementSibling();
+                for (Element x1 : x.children()){
+                    System.out.println(x1);
+                }
+                System.out.println(location);
+                System.out.println(allWithin);
                 System.out.println("---");
             }
 
