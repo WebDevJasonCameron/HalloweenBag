@@ -77,9 +77,9 @@ public class GhostQuestScraper {
             Document doc = Jsoup.connect(targetUrl).timeout(6000).get();
             Elements body = doc.select("div.container");
 
-            for(Element e : body.select("div.paragraph")){
-                String upperMeta = e.select("div.paragraph").text();
-                System.out.println(upperMeta);
+            for(Element e : body.select("div h2")){
+                String title = e.select("h2").text().replace("[TAP OR CLICK TO LEARN MORE]", "");
+                System.out.println(title);
                 System.out.println("---");
             }
 
