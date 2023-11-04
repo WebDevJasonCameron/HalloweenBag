@@ -9,7 +9,8 @@ What Spooky Thing Should We Do This Halloween?  How about a bag full of spoooook
 
 ## Our <s>Victims</s> Volunteer
 - [GhostGuest.net](https://www.ghostquest.net/haunted-places-usa.html)
-- [ParanormalDatabase.com](https://www.paranormaldatabase.com/index.html)
+- [ParanormalDatabase.com](https://www.paranormaldatabase.com/index.html) <- This is broken!
+- [haunts](https://www.haunts.com/haunted-places/)
 
 
 ## Keep for Later

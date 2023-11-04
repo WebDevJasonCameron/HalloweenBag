@@ -80,13 +80,22 @@ public class GhostQuestScraper {
 
             for(Element e : body.select("div h2")){
                 String location = e.select("h2").text().replace("[TAP OR CLICK TO LEARN MORE]", "");
-                String allWithin = e.nextElementSibling().text();
-                Element x = e.nextElementSibling();
-                for (Element x1 : x.children()){
-                    System.out.println(x1);
+                System.out.println("=======================>" + location);
+
+
+                for(Element e2 : e.nextElementSiblings()){
+                    String title = e2.select("div.paragraph strong font").text();
+                    System.out.println(title);
                 }
-                System.out.println(location);
-                System.out.println(allWithin);
+
+
+                //String allWithin = e.nextElementSibling().text();
+
+
+
+                //System.out.println(allWithin);
+
+
                 System.out.println("---");
             }
 
