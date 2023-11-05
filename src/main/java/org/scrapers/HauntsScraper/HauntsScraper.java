@@ -65,7 +65,7 @@ public class HauntsScraper {
             "wyoming"
     };
     private static String state = states[0] ;
-    private static String targetUrl = "https://www.haunts.com/blog/haunted-places-" + "washington" + "-usa.html";
+    private static String targetUrl = "https://www.haunts.com/blog/haunted-places-" + "washington";
     private List<GhostRecord> ghostRecords = new ArrayList<>();
 
 
@@ -75,10 +75,12 @@ public class HauntsScraper {
         try {
 
             Document doc = Jsoup.connect(targetUrl).timeout(6000).get();
-            Elements body = doc.select("div.container");
+            Elements body = doc.select("div.clearfix p");
 
-            for(Element e : body.select("div h2")){
+            for(Element e : body.select("p span strong")){
+                String location = e.selectFirst("p span strong").text();
 
+                System.out.println(location);
                 System.out.println("---");
             }
 
@@ -87,6 +89,10 @@ public class HauntsScraper {
         }
 
         return null;
+    }
+
+    public static void main(String[] args) {
+        ghostRecordScraper(targetUrl);
     }
 
 }
